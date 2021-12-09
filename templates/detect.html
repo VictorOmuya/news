@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Model</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+			integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+	<body style="background-color:black;">
+		<div class="jumbotron m-3" style="background-color: black;">
+			<h1>
+				<div class="msg" style="text-align: center; align-content: centers;">
+					{% if result == 'Fake' %}
+						<h1 style="color:red;">Looks like a fake news</h1>
+					{% elif result == 'Real' %}
+						<h1 style="color: green;">Looks like a real news</h1>
+					{% endif %}
+				</div>
+			</h1>
+		</div>
+		<div>
+			<div class="login">
+			<form action="/preds" method="POST">
+				<div><textarea cols="80" rows="2" name="headline" value="{{ request.form['headline'] }}" placeholder="Enter News headline"
+						required>{{ request.form['headline'] }}</textarea></div>
+			
+					<div><textarea cols="80" rows="12" name="body" value="{{ request.form['body'] }}" placeholder="Enter News body" required>{{ request.form['body'] }}</textarea></div>	
+					
+					<input type="submit" value="CHECK">
+						
+			</form>
+		</div>
+		</div>
+	</body>
+</html>
