@@ -91,4 +91,4 @@ def chk():
     return render_template('detect.html')
 
 
-app.run(host='0.0.0.0', port=8080, debug=True)
+app.run(debug=True)
